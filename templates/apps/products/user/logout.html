@@ -1,0 +1,8 @@
+{% extends 'apps/products/base.html' %}
+
+{% block user_auth %}
+
+    <h1> You have been log in out.</h1>
+    <small>Do you want to log in again?</small><a href="{% url 'login' %}"> Log in</a>
+
+{% endblock %}

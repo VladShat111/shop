@@ -1,0 +1,15 @@
+{% extends 'apps/products/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block user_auth %}
+    <h1>Log In</h1>
+    <form method="post" id="loginForm">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="form-group ">
+            <button class="btn btn-success" type="submit">Login</button> <a class="btn btn-outline-info" id="googleEnter" href="{% url 'social:begin' 'google-oauth2' %}">Google</a>
+        </div>
+    </form>
+    <small> Do you need an account?</small><a href="{% url 'register' %}"> Register</a>
+
+{% endblock %}
