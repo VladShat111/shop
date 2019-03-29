@@ -1,2 +1,2 @@
 django-jet==2.1.7
-
+rest_framework
