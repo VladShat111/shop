@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'social_django',
+    'django_celery_results',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -138,3 +139,5 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'products'
+
+CELERY_RESULT_BACKEND = 'django-db'
