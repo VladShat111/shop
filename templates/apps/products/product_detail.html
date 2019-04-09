@@ -1,0 +1,22 @@
+{% extends 'apps/products/base.html' %}
+{% block content %}
+    <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ object.img.url }}" alt="Card image cap">
+          <div class="card-body">
+                <h4 class="card-title"><strong>{{ object.name }}</strong></h4>
+                <p class="card-text">{{ object.description }}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Price:</strong> {{ object.price }}</li>
+                <li class="list-group-item"><strong>Stock:</strong> {{ object.stock }}</li>
+                <li class="list-group-item"><strong>Pub_date:</strong> {{ object.pub_date }}</li>
+          </ul>
+          <div class="card-body">
+                {% if user.is_authenticated %}
+                <a href="#" class="btn btn-outline-success">Buy</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="card-link">Log in for buying</a>
+                {% endif %}
+          </div>
+    </div>
+{% endblock %}

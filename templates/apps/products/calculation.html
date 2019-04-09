@@ -1,0 +1,17 @@
+{% extends 'apps/products/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Calculate your daily nutrition</h1>
+            <form method="post">
+                {% csrf_token %}
+                <input placeholder="Enter your weight" id="userWeight">
+                <button class="btn btn-outline-success" id="calculation" type="submit">Calculate</button>
+            </form>
+        </div>
+        <div class="col-lg-12" id="CalculationState"></div>
+        <div class="col-lg-12">
+
+        </div>
+    </div>
+{% endblock %}
