@@ -23,20 +23,3 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'name': self.name, 'pk': self.pk})
-
-
-class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    amount = models.PositiveIntegerField(default=1)
-    item_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
-
-    def __str__(self):
-        return f'Cart item for product {self.product.name}'
-
-
-class Cart(models.Model):
-    items = models.ManyToManyField(CartItem, blank=True)
-    cart_total = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
-
-    def __str__(self):
-        return str(self.id)

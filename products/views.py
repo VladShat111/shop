@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Product, CartItem, Cart
+from .models import Product
+from cart.models import CartItem, Cart
 from django.views.generic import ListView, DetailView
 from .forms import UserRegisterForm
 from django.contrib import messages
@@ -50,7 +51,10 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'{username}, your account has been created. Now you are able to log in')
+            messages.success(
+                request, 
+                '{}, your account has been created. Now you are able to log in'.format(username)
+            )
             return redirect('login')
     else:
         form = UserRegisterForm()
