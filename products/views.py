@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Product
-from cart.models import CartItem, Cart
+from cart.models import CartItem
 from django.views.generic import ListView, DetailView
 from .forms import UserRegisterForm
 from django.contrib import messages
@@ -18,12 +18,6 @@ class ProductView(ListView):
 class ProductDetail(DetailView):
     model = Product
     template_name = 'apps/products/product_detail.html'
-
-
-def cart(request):
-
-    return render(request, 'apps/products/cart.html')
-
 
 
 def calculate(request):

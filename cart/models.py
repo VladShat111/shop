@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+
 from products.models import Product
 
 
@@ -9,6 +11,9 @@ class Cart(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    def get_absolute_url(self):
+        return reverse('products', kwargs={'pk': self.pk})
 
 
 class CartItem(models.Model):
@@ -20,6 +25,9 @@ class CartItem(models.Model):
     @property
     def calc_total_price(self):
         return self.product.price
+
+    def get_absolute_url(self):
+        return reverse('create_cart_item', kwargs={'pk': self.pk})
 
     def __str__(self):
         return 'Cart item for product {}'.format(self.product.name)
