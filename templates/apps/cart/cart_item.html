@@ -1,0 +1,31 @@
+{% extends 'apps/products/base.html' %}
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Price</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+     <form method="post">
+            {% csrf_token %}
+         {% for item in cartitem %}
+        <tr>
+          <th scope="row">{{ item.id}}</th>
+          <td>{{ item.product }}</td>
+          <td>{{ item.amount }}</td>
+          <td>{{ item.total_price }}</td>
+          <td><button class="btn btn-outline-secondary" type="submit" href="#">Update</button></td>
+          <td><button class="btn btn-outline-danger" type="submit" href="#">Delete</button></td>
+        </tr>
+        {% endfor %}
+     </form>
+  </tbody>
+
+</table>
+{% endblock %}

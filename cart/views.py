@@ -10,7 +10,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 class CreateCartView(LoginRequiredMixin, CreateView):
     model = Cart
     fields = ['user', 'total_sum']
-    template_name = 'apps/cart/cart.html'
+    template_name = 'apps/products/product_detail.html'
 
 
 class UpdateCartView(LoginRequiredMixin, UpdateView):
@@ -22,7 +22,7 @@ class UpdateCartView(LoginRequiredMixin, UpdateView):
 class DeleteCartView(LoginRequiredMixin, DeleteView):
     model = Cart
     template_name = 'apps/cart/cart.html'
-    success_url = 'produc'
+    success_url = 'product'
 
 #Views for cart items
 
@@ -30,16 +30,16 @@ class DeleteCartView(LoginRequiredMixin, DeleteView):
 class CreateCartItemView(LoginRequiredMixin, CreateView):
     model = CartItem
     fields = ['product', 'amount', 'total_price']
-    template_name = 'apps/cart/cart.html'
+    template_name = 'apps/cart/cart_item.html'
 
 
 class UpdateCartItemView(LoginRequiredMixin, UpdateView):
     model = CartItem
     fields = ['product', 'amount', 'total_price']
-    template_name = 'apps/cart/cart.html'
+    template_name = 'apps/cart/cart_item.html'
 
 
 class DeleteCartItemView(LoginRequiredMixin, DeleteView):
     model = CartItem
-    template_name = 'apps/cart/cart.html'
+    template_name = 'apps/cart/cart_item.html'
     success_url = 'products'
