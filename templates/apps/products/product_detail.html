@@ -13,7 +13,7 @@
           </ul>
           <div class="card-body">
                 {% if user.is_authenticated %}
-                <form action="{% url 'create_cart_item' object.pk %}" method="post">
+                <form action="{% url 'create_cart_item' cart %}" method="post">
                     {% csrf_token %}
                     <input hidden name="{{ product.id }}">
                     <button class="btn btn-outline-success" type="submit">Buy</button>

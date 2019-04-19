@@ -10,7 +10,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 class CreateCartView(LoginRequiredMixin, CreateView):
     model = Cart
     fields = ['user', 'total_sum']
-    template_name = 'apps/products/product_detail.html'
+    template_name = 'apps/cart/'
 
 
 class UpdateCartView(LoginRequiredMixin, UpdateView):

@@ -12,19 +12,20 @@
     </tr>
   </thead>
   <tbody>
-     <form method="post">
-            {% csrf_token %}
-         {% for item in cartitem %}
+
         <tr>
-          <th scope="row">{{ item.id}}</th>
-          <td>{{ item.product }}</td>
-          <td>{{ item.amount }}</td>
-          <td>{{ item.total_price }}</td>
-          <td><button class="btn btn-outline-secondary" type="submit" href="#">Update</button></td>
-          <td><button class="btn btn-outline-danger" type="submit" href="#">Delete</button></td>
+          <th scope="row">{{ cartitem.id}}</th>
+          <td>{{ cartitem.product }}</td>
+          <td>{{ cartitem.amount }}</td>
+          <td>{{ cartitem.total_price }}</td>
+            <form method="post">
+                {% csrf_token %}
+
+               <td><button class="btn btn-outline-secondary" type="submit" href="#">Update</button></td>
+               <td><button class="btn btn-outline-danger" type="submit" href="#">Delete</button></td>
+            </form>
         </tr>
-        {% endfor %}
-     </form>
+
   </tbody>
 
 </table>

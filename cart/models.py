@@ -21,7 +21,7 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.SET_NULL, null=True, related_name="items")
     amount = models.PositiveIntegerField(default=1)
     total_price = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
-    
+
     @property
     def calc_total_price(self):
         return self.product.price
