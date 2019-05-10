@@ -12,20 +12,19 @@
     </tr>
   </thead>
   <tbody>
-
+{% for cart_item in cart_item %}
         <tr>
-          <th scope="row">{{ cartitem.id}}</th>
-          <td>{{ cartitem.product }}</td>
-          <td>{{ cartitem.amount }}</td>
-          <td>{{ cartitem.total_price }}</td>
+          <th scope="row">{{ cart_item.id}}</th>
+          <td>{{ cart_item.product }}</td>
+          <td>{{ cart_item.amount }}</td>
+          <td>{{ cart_item.total_price }}</td>
             <form method="post">
                 {% csrf_token %}
-
-               <td><button class="btn btn-outline-secondary" type="submit" href="#">Update</button></td>
+               <td><button class="btn btn-outline-secondary" type="submit">Update</button></td>
                <td><button class="btn btn-outline-danger" type="submit" href="#">Delete</button></td>
             </form>
         </tr>
-
+{% endfor %}
   </tbody>
 
 </table>

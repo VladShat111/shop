@@ -15,7 +15,10 @@
                 {% if user.is_authenticated %}
                 <form action="{% url 'create_cart_item' cart %}" method="post">
                     {% csrf_token %}
-                    <input hidden name="{{ product.id }}">
+                    <input hidden name="product_id" value="{{ product.id }}">
+                    <input hidden name="cart_id" value="{{ cart.id }}">
+                    <input hidden name="product_name" value="{{ product.name }}">
+                    <input hidden name="product_price" value="{{ product.price }}">
                     <button class="btn btn-outline-success" type="submit">Buy</button>
                 </form>
 
